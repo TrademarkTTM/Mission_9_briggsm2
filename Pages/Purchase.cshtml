@@ -1,0 +1,41 @@
+﻿@page
+@model Mission_9_briggsm2.Pages.PurchaseModel
+@{
+}
+
+<h2>Your Cart</h2>
+
+<table class="table table-bordered table-striped table-hover"> <!--I also added the bootstrap to allow you to hover over a line in the table.-->
+
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var i in Model.cart.Items)
+        {
+            <tr>
+                <td>@i.Book.Title</td>
+                <td>@i.Quantity</td>
+                <td>@i.Book.Price</td>
+                <td>@(i.Quantity * i.Book.Price)</td>
+            </tr>
+        }
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="3">Total:</td>
+            <td>@Model.cart.CalculateTotal().ToString("c")</td>
+        </tr>
+    </tfoot>
+</table>
+
+<div>
+    <a class="btn btn-primary" href="@Model.ReturnUrl" data-toggle="tooltip" data-placement="top" title="This will take you back to your last page.">Continue Shopping</a> <!--I added the tooltip bootstrap so that when you hover over the button in the shopping cart, it gives you a description of what the button does so that you are not suprised or left guessing.-->
+</div>
