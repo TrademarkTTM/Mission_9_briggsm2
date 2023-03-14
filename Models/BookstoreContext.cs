@@ -20,6 +20,7 @@ namespace Mission_9_briggsm2.Models
         }
 
         public DbSet<Book> Books { get; set; }
+        public DbSet<Checkout> Checkouts { get; set; }
 
     }
 }
